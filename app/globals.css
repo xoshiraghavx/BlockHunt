@@ -98,6 +98,26 @@ body {
 * {
   box-sizing: border-box;
 }
+.marquee-container {
+  display: inline-flex;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 30px; /* Optional padding between the duplicated text blocks */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 
  

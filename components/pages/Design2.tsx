@@ -8,6 +8,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "@/config/firebase";import { FloatingIcons } from "@/components/floating-icon"
 import { MailIcon, MailOpenIcon } from "lucide-react"
+import Marquee from "../marquee"
 
 
 export default function Design2() {
@@ -37,6 +38,9 @@ export default function Design2() {
 
   return (
     <div className="flex flex-col ">
+      <div className="text-white">
+      <Marquee/>
+      </div>
       <Navbar />
       <FloatingIcons/>
 
