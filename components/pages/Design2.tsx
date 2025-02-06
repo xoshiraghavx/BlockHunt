@@ -4,30 +4,49 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navabr"
-import { useState } from "react"
-import { FloatingIcons } from "@/components/floating-icon"
+import { collection, addDoc } from "firebase/firestore";
+import { useState } from "react";
+import { db } from "@/config/firebase";import { FloatingIcons } from "@/components/floating-icon"
+import { MailIcon, MailOpenIcon } from "lucide-react"
+
 
 export default function Design2() {
-  const [email, setEmail] = useState("")
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle email subscription
-    console.log("Subscribing email:", email)
-  }
+  const [email, setEmail] = useState<string>("");
+  
+    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   setEmail(e.target.value);
+    // };
+  
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault(); // Prevents page refresh
+    
+      if (!email) return alert("Please enter an email address");
+      try {
+        await addDoc(collection(db, "early-register-users"), {
+          email: email,
+        });
+        alert("Successfully joined the waitlist!");
+        setEmail("");
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        alert("Failed to join the waitlist. Please try again.");
+      }
+    };
+    
+  
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="flex flex-col">
       <Navbar />
       <FloatingIcons/>
 
       <main className="">
-        <div className="container mx-auto px-4 h-screen flex flex-col justify-center ">
+        <div className="container mx-auto px-4 mt-[30vh] flex flex-col justify-center ">
           <div className="flex gap-5 flex-col items-center justify-center text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-8xl">
               Welcome to DappHunt!
             </h1>
-            <p className=" text-lg text-gray-400 max-w-2xl">
+            <p className=" text-xl text-white max-w-3xl">
               The place to launch and discover new Web3 products. Join the Wait-list.
             </p>
 
@@ -37,10 +56,13 @@ export default function Design2() {
                 placeholder="Kindly write your email address here.."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500"
+                className="border-gray-700 text-white placeholder:text-gray-400 bg-transparent"
                 required
               />
-              <Button type="submit" className="bg-primary text-white hover:bg-primary/90">
+              <Button type="submit" className="bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white">
+                <span className="text-blue-600">
+                  <MailOpenIcon/>
+                </span>
                 Subscribe
               </Button>
             </form>

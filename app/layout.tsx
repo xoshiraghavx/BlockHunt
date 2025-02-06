@@ -5,7 +5,7 @@ import type React from "react" // Import React
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Block Hunt - The best new blocks in web3",
+  title: "DappHunt",
   // description: "Your dedicated support solution",
 }
 

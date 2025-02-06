@@ -81,6 +81,11 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: radial-gradient(circle at 100% 150%, #822727 9%, #000 50%);
+}
+
+ 
 @layer base {
   :root {
     --background: 0 0% 100%;
