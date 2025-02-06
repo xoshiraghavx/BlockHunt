@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='h-screen'>
+    <div className='max-w-full max-h-screen overflow-hidden'>
       {/* <Design1/> */}
       <Design2/>
 

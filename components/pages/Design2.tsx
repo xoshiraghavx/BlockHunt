@@ -36,21 +36,21 @@ export default function Design2() {
   
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <Navbar />
       <FloatingIcons/>
 
       <main className="">
-        <div className="container mx-auto px-4 mt-[30vh] flex flex-col justify-center ">
+        <div className="container mx-auto px-4 sm:mt-[30vh] mt-[25vh] flex flex-col justify-center ">
           <div className="flex gap-5 flex-col items-center justify-center text-center">
-            <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-8xl">
+            <h1 className="text-3xl font-black tracking-tight text-white sm:text-6xl lg:text-8xl">
               Welcome to DappHunt!
             </h1>
-            <p className=" text-xl text-white max-w-3xl">
+            <p className=" text-md sm:text-xl text-white max-w-3xl">
               The place to launch and discover new Web3 products. Join the Wait-list.
             </p>
 
-            <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full max-w-md sm:gap-2 gap-4 items-center justify-center">
               <Input
                 type="email"
                 placeholder="Kindly write your email address here.."
@@ -59,7 +59,7 @@ export default function Design2() {
                 className="border-gray-700 text-white placeholder:text-gray-400 bg-transparent"
                 required
               />
-              <Button type="submit" className="bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white">
+              <Button type="submit" className="w-[35vw] sm:w-[10vw] bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white">
                 <span className="text-blue-600">
                   <MailOpenIcon/>
                 </span>

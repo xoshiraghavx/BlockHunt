@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MetaMask from "@/app/public/metamaskW.png";
 
 const icons = [
-  { src: "/metamaskW.png", alt: "Metamask" },  // ✅ Use MetaMask directly
+  { src: "/metamaskW.png", alt: "Metamask" },
   { src: "/gitcoin.png", alt: "gitcoin" },
   { src: "/zapper.png", alt: "zapper" },
   { src: "/farcaster.png", alt: "farcaster" },
@@ -16,7 +15,7 @@ export function FloatingIcons() {
   const radius = 41; // Circle radius in viewport percentage
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute inset-0 pointer-events-none ">
       {icons.map((icon, index) => {
         const angle = (index / icons.length) * 2 * Math.PI; // Distribute in a circle
         const top = `${50 + radius * Math.sin(angle)}%`;
@@ -47,7 +46,12 @@ export function FloatingIcons() {
             style={{ top, left }}
           >
             <div className="shadow-xl">
-              <img src={icon.src} alt={icon.alt} className="w-16 h-16 rounded-xl" />
+              {/* Adjust icon size for smaller screens */}
+              <img
+                src={icon.src}
+                alt={icon.alt}
+                className="w-8 h-8 sm:w-16 sm:h-16 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-16 xl:h-16 rounded-xl"
+              />
             </div>
           </motion.div>
         );

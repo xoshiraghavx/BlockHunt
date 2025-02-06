@@ -84,6 +84,21 @@ body {
 body {
   background: radial-gradient(circle at 100% 150%, #822727 9%, #000 50%);
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  overflow-y: auto; /* Prevent vertical scrolling if not needed */
+}
+
+* {
+  box-sizing: border-box;
+}
+
 
  
 @layer base {
